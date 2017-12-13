@@ -3,9 +3,9 @@ package lesson171206;
 public class ConstructorFlow {
 
     public static void main(String... args) {
-//        C c = new C();
-        System.out.println(C.MAX);
-        C.staticMethod();
+        C c = new C();
+//        System.out.println(C.MAX);
+//        C.staticMethod();
     }
 }
 
