@@ -1,15 +1,15 @@
 package lesson171218;
 
+import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import javax.swing.*;
 
 public class AnonymousExample {
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         SwingListenerDemo swingListenerDemo = new SwingListenerDemo();
 
     }
@@ -19,13 +19,13 @@ public class AnonymousExample {
 class SwingListenerDemo {
     private JFrame mainFrame;
 
-    public SwingListenerDemo(){
+    public SwingListenerDemo() {
         prepareGUI();
     }
 
-    private void prepareGUI(){
+    private void prepareGUI() {
         mainFrame = new JFrame("Java SWING Examples");
-        mainFrame.setSize(400,400);
+        mainFrame.setSize(400, 400);
         mainFrame.setLayout(new FlowLayout());
         mainFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
@@ -37,9 +37,13 @@ class SwingListenerDemo {
                 System.out.println("Hehey!");
             }
         });
+
+        int effectivelyFinalCount = 0;
+
         okButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                System.out.println(effectivelyFinalCount);
                 button1Click(e);
             }
         });
