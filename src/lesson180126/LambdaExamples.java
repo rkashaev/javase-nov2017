@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.function.Consumer;
+import java.util.function.Function;
 import java.util.function.Predicate;
 
 public class LambdaExamples {
@@ -26,9 +27,23 @@ public class LambdaExamples {
         newCats.removeIf(cat -> Period.between(cat.dateBirth, now).getYears() > 10);
 
         newCats.forEach(cat -> System.out.println(cat));
-        
+
+        List<Integer> ints = Arrays.asList(1, 2, 3, 4, 5, 6, 7);
+
+        List<String> strings = convert(ints, a -> String.valueOf(a));
 
     }
+
+    static List<String> convert(List<Integer> list, Function<Integer, String> func) {
+        List<String> res = new ArrayList<>(list.size());
+
+        for (Integer o : list) {
+            res.add(func.apply(o));
+        }
+
+        return res;
+    }
+
 
     static List<Cat> filterCats(List<Cat> cats, Predicate<Cat> tester) {
         List<Cat> newCats = new ArrayList<>();

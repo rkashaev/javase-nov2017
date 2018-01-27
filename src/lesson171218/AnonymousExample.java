@@ -3,7 +3,6 @@ package lesson171218;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
@@ -40,16 +39,15 @@ class SwingListenerDemo {
 
         int effectivelyFinalCount = 0;
 
-        okButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                System.out.println(effectivelyFinalCount);
-                button1Click(e);
-            }
-        });
+        okButton.addActionListener(e -> okButtonClick(e, effectivelyFinalCount));
 
         mainFrame.add(okButton);
         mainFrame.setVisible(true);
+    }
+
+    public void okButtonClick(ActionEvent e, int effectivelyFinalCount) {
+        System.out.println(effectivelyFinalCount);
+        button1Click(e);
     }
 
     private void button1Click(ActionEvent e) {
